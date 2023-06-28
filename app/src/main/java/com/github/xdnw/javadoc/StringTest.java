@@ -1,4 +1,4 @@
-package vscodetest;
+package com.github.xdnw.javadoc;
 
 import java.util.ArrayList;
 import java.util.List;

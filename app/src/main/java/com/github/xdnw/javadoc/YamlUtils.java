@@ -1,4 +1,4 @@
-package vscodetest;
+package com.github.xdnw.javadoc;
 
 import org.yaml.snakeyaml.Yaml;
 import java.io.FileInputStream;
