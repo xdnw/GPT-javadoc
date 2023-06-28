@@ -15,6 +15,15 @@ public class FileDataStore implements IDataStore {
     public FileDataStore(String filePath)
     {
         _file = new File(filePath);
+        // create if not exists
+        if (!_file.exists())
+        {
+            try {
+                _file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     /// <summary>
