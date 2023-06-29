@@ -23,6 +23,7 @@ import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.AccessSpecifier;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.xdnw.gpt.JavaMethodExtractor;
 
 import copilot.CopilotApi;
 import copilot.CopilotAuthentication;
@@ -32,12 +33,12 @@ import copilot.FileDataStore;
 import copilot.HttpClientWrapper;
 import copilot.ICopilotApi;
 
-public class App {
+public class AppTest {
 
     private CopilotApi copilotApi;
 
 
-    public App() {
+    public AppTest() {
         HttpClient httpClient = HttpClient.newBuilder()
 //                .authenticator()
                 .connectTimeout(Duration.ofSeconds(50))

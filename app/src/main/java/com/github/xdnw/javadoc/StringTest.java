@@ -4,45 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StringTest {
-    public static void main(String[] args) {
-        String command = """
-            @Locutus#7602 !grant Borg {
-            "infra_needed": 2500,
-            "imp_total": 50,
-            "imp_coalpower": 0,
-            "imp_oilpower": 0,
-            "imp_windpower": 0,
-            "imp_nuclearpower": 2,
-            "imp_coalmine": 0,
-            "imp_oilwell": 0,
-            "imp_uramine": 0,
-            "imp_leadmine": 0,
-            "imp_ironmine": 0,
-            "imp_bauxitemine": 10,
-            "imp_farm": 0,
-            "imp_gasrefinery": 0,
-            "imp_aluminumrefinery": 5,
-            "imp_munitionsfactory": 5,
-            "imp_steelmill": 0,
-            "imp_policestation": 1,
-            "imp_hospital": 5,
-            "imp_recyclingcenter": 3,
-            "imp_subway": 1,
-            "imp_supermarket": 0,
-            "imp_bank": 4,
-            "imp_mall": 4,
-            "imp_stadium": 3,
-            "imp_barracks": 0,
-            "imp_factory": 2,
-            "imp_hangars": 5,
-            "imp_drydock": 0
-            } 1""";
-            int i = 0;
-            for (String arg : split(command, ' ')) {
-                System.out.println((i++) + ". " + arg);
-            }
-    }
-
     public static boolean isQuote(char c) {
         switch (c) {
             case '\'':

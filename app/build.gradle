@@ -42,5 +42,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'vscodetest.App'
+    mainClass = 'com.github.xdnw.cgpt.App'
 }

@@ -1,4 +1,4 @@
-package com.github.xdnw.javadoc;
+package com.github.xdnw.gpt;
 
 import org.yaml.snakeyaml.Yaml;
 import java.io.FileInputStream;

@@ -3,6 +3,7 @@ package com.github.xdnw.javadoc;
 import java.util.concurrent.ExecutionException;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.github.xdnw.gpt.CopilotHandler;
 
 public class AutoGPT_Test {
     public static void main(String[] args) throws JsonProcessingException, InterruptedException, ExecutionException {

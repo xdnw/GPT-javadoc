@@ -1,4 +1,4 @@
-package com.github.xdnw.commit;
+package com.github.xdnw.gpt;
 
 import java.util.ArrayList;
 import java.util.List;

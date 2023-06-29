@@ -1,4 +1,4 @@
-package com.github.xdnw.javadoc;
+package com.github.xdnw.gpt;
 
 import java.io.BufferedReader;
 import java.io.File;
