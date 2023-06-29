@@ -12,7 +12,7 @@ Note:
 The Javadoc generation feature is still a work in progress. I am working to improve the accuracy and reliability of this feature before running it on a whole project.
 
 ### To Do
-I am always looking for ways to improve. Some ideas for future improvements include:
+Some ideas for future improvements include:
 
 Generating more accurate and reliable commit messages using other language models.
 Improving the Javadoc generation feature to handle more complex Java projects.
