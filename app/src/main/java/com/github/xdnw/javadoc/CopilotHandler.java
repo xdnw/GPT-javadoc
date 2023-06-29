@@ -159,7 +159,7 @@ public class CopilotHandler {
                 Class Fields:
                 {class_fields}
 
-                Write a javadoc comment for the {class_name} class. 
+                Write a class level javadoc comment for the {class_name} class. 
                 Include the following elements:
                 1. Class Description: Offer a detailed explanation of the class, its responsibilities, and its relationship to other classes or modules.
                 2. Constructor Summary: Document each constructor in the class, including a description and the parameters it accepts.
