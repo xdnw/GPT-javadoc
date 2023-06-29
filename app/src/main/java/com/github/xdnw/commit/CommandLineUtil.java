@@ -42,7 +42,7 @@ public class CommandLineUtil {
     }
 
     public static String getGitDiff(File repoDir, boolean useCached) throws IOException {
-        String[] commands = useCached ? new String[]{"git", "diff", "--cached"} : new String[]{"git", "diff"};
+        String[] commands = useCached ? new String[]{"git", "--no-pager", "diff", "--cached"} : new String[]{"git", "--no-pager", "diff"};
         return executeCommand(repoDir, commands);
     }
 
@@ -67,14 +67,15 @@ public class CommandLineUtil {
         CopilotHandler handler = new CopilotHandler();
 
         String prompt = """
-            Please write a commit message summarizing the functional and behavioral changes in the following Git diff for {user_description}:
             ```diff
             {git_diff}
             ``` 
-            Remember to end your message with `;`.
+
+            Please write a commit message summarizing the functional and behavioral changes above.
 
             Commit Message:
-            ```markdown""";
+            ```markdown
+            {user_description}""";
 
         prompt = prompt.replace("{user_description}", userDescription);
 
@@ -94,8 +95,8 @@ public class CommandLineUtil {
 
                 System.out.println("prompt " + finalPrompt);
 
-                String response = handler.getResponse(finalPrompt, remaining, temperature, "\n\n", ";", "```");
-                commitMessage.append(response.replace("|", "\n")).append("\n");
+                String response = handler.getResponse(finalPrompt, remaining, temperature, "\n\n", "```");
+                commitMessage.append(response).append("\n");
 
                 temperature -= increment;
             }
