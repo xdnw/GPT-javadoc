@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
+import javax.management.RuntimeErrorException;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.StaticJavaParser;
@@ -34,7 +36,7 @@ import copilot.FileDataStore;
 import copilot.HttpClientWrapper;
 import copilot.ICopilotApi;
 
-public class CopilotHandler {
+public class CopilotHandler implements IGPTHandler {
     private CopilotApi copilotApi;
     public CopilotHandler() {
         HttpClient httpClient = HttpClient.newBuilder()
@@ -57,18 +59,26 @@ public class CopilotHandler {
         this.copilotApi = new CopilotApi(copilotConfiguration, copilotAuthentication, wrapper);
     }
 
-    public String getResponse(String prompt, int tokens, float temperature, String... stop) throws JsonProcessingException, InterruptedException, ExecutionException {
-        CopilotParameters parameters = new CopilotParameters();
-        
-        {
-            parameters.Prompt = prompt;
-            parameters.MaxTokens = tokens;
-            parameters.Temperature = temperature;
-            parameters.Stop = stop;
-        }
+    @Override
+    public String getResponse(String prompt, int tokens, float temperature, String... stop) {
+        try {    
+            CopilotParameters parameters = new CopilotParameters();
+            
+            {
+                parameters.Prompt = prompt;
+                parameters.MaxTokens = tokens;
+                parameters.Temperature = temperature;
+                parameters.Stop = stop;
+            }
 
-        var completions2 = copilotApi.GetCompletionsAsync(parameters).get();
-        return String.join("", completions2.stream().map(f -> f.choices[0].Text).toList());
+            var completions2 = copilotApi.GetCompletionsAsync(parameters).get();
+            return String.join("", completions2.stream().map(f -> f.choices[0].Text).toList());
+        } catch (JsonProcessingException | ExecutionException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new RuntimeException(e);
+        }
     }
 
 }
