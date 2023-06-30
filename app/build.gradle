@@ -37,6 +37,15 @@ dependencies {
     implementation 'org.apache.commons:commons-text:1.10.0'
     implementation 'gg.acai:chatgpt-java:1.0.2'
 
+      implementation "org.apache.logging.log4j:log4j-slf4j-impl:2.17.1"
+    implementation platform("ai.djl:bom:0.22.1")
+    implementation "ai.djl:api:0.22.1"
+    runtimeOnly "ai.djl.pytorch:pytorch-engine:0.22.1"
+    runtimeOnly "ai.djl.pytorch:pytorch-model-zoo:0.22.1"
+    implementation "ai.djl.huggingface:tokenizers:0.22.1"
+    runtimeOnly 'ai.djl.pytorch:pytorch-native-cu118:2.0.0:win-x86_64'
+    runtimeOnly 'ai.djl.pytorch:pytorch-jni:2.0.0-0.22.1'
+
 
     
 
