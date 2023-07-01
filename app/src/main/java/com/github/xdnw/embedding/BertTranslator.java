@@ -24,7 +24,7 @@ public class BertTranslator implements Translator<QAInput, String> {
 
     @Override
     public void prepare(TranslatorContext ctx) throws IOException {
-        Path path = Paths.get("app/src/main/resources/bert/vocab.txt");
+        Path path = Paths.get("app/src/main/resources/bertqa/vocab.txt");
         if (!path.toFile().exists()) {
             throw new IllegalStateException("File not found: " + path);
         }

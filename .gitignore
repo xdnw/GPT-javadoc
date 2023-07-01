@@ -88,3 +88,5 @@ nb-configuration.xml
 tokens.json
 app/src/main/resources/bert/bertqa.pt
 app/src/main/resources/bert/vocab.txt
+app/src/main/resources/bertqa/bertqa.pt
+app/src/main/resources/bertqa/vocab.txt
